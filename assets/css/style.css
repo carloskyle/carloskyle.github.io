@@ -5,8 +5,8 @@
   --muted: #a3a9b8;
   --border: rgba(255,255,255,.08);
 
-  /* Accent discreto */
   --accent: #35d07f;
+  --accent2: #35d07f;
 
   --radius: 16px;
   --shadow: 0 15px 40px rgba(0,0,0,.6);
@@ -21,12 +21,11 @@ body{
   margin:0;
   font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color: var(--text);
-  background:
-    linear-gradient(rgba(7,8,12,.85), rgba(7,8,12,.92)),
-    url("/assets/bg.png") center center / cover no-repeat fixed;
+  background: var(--bg);
+  position: relative;
 }
 
-/* Background global via pseudo-elemento (mobile-safe) */
+/* ✅ Wallpaper único (sem duplicar imagem) */
 body::before{
   content:"";
   position: fixed;
@@ -34,15 +33,25 @@ body::before{
   background-image: var(--page-bg);
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.18;
+  background-position: center 70%;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* ✅ Overlay escuro + leve “cara” de UI (controla contraste) */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(7,8,12,.78), rgba(7,8,12,.92)),
+    radial-gradient(1200px 600px at 15% 0%, rgba(53,208,127,.08), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(53,208,127,.06), transparent 55%);
   pointer-events: none;
   z-index: -1;
 }
 
-/* Mantém seus efeitos/gradients no body sem "apagar" a imagem */
-body{
-  position: relative;
-}
 /* Container */
 .container{
   max-width: var(--max);
@@ -67,14 +76,8 @@ body{
 }
 
 .brand{ display:flex; flex-direction:column; gap:2px; }
-.brand .title{
-  font-weight:700;
-  color: var(--text);
-}
-.brand .desc{
-  font-size:13px;
-  color: var(--muted);
-}
+.brand .title{ font-weight:700; color: var(--text); }
+.brand .desc{ font-size:13px; color: var(--muted); }
 
 .links{
   display:flex;
@@ -87,10 +90,12 @@ body{
   padding: 8px 10px;
   border-radius:12px;
   transition:.2s;
+  text-decoration: none;
 }
 
 .links a:hover{
   background: rgba(255,255,255,.05);
+  text-decoration: none;
 }
 
 /* Article */
@@ -112,13 +117,8 @@ article h1{
   line-height:1.2;
 }
 
-article h2{
-  margin-top:28px;
-}
-
-article p{
-  margin-bottom:18px;
-}
+article h2{ margin-top:28px; }
+article p{ margin-bottom:18px; }
 
 /* Code */
 pre{
@@ -126,6 +126,7 @@ pre{
   border-radius:12px;
   padding:16px;
   overflow:auto;
+  border: 1px solid rgba(255,255,255,.06);
 }
 
 code{
@@ -135,13 +136,15 @@ code{
 }
 
 /* Tags */
+.badges{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
 .badge{
   display:inline-block;
   font-size:12px;
   padding:4px 10px;
   border-radius:999px;
-  background: rgba(255,255,255,.08);
-  margin-right:6px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.05);
+  color: var(--text);
 }
 
 /* Images */
@@ -162,50 +165,14 @@ code{
   font-size:13px;
 }
 
-/* MOBILE */
-@media (max-width: 768px){
-
-  body{
-    background:
-      linear-gradient(rgba(7,8,12,.92), rgba(7,8,12,.95)),
-      url("/assets/img/bg.png") center center / cover no-repeat;
-  }
-
-  .nav{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  article h1{
-    font-size:28px;
-  }
-
-  .container{
-    padding:16px;
-  }
-}
-
-/* ===== FIX 1: manter cor de links consistente (sem roxo de :visited) ===== */
+/* Links gerais (conteúdo) */
 a, a:visited{
   color: var(--accent2);
   text-decoration: none;
 }
+a:hover{ text-decoration: underline; }
 
-.links a, .links a:visited{
-  color: var(--text);
-  text-decoration: none;
-}
-
-.post-title a, .post-title a:visited{
-  color: var(--text);
-  text-decoration: none;
-}
-
-.post-title a:hover{
-  text-decoration: none;
-}
-
-/* ===== FIX 2: voltar segmentação da home (hero + cards) ===== */
+/* Home (hero + cards) */
 .hero{
   margin-top: 18px;
   padding: 20px 18px;
@@ -215,7 +182,6 @@ a, a:visited{
   backdrop-filter: blur(8px);
   box-shadow: var(--shadow);
 }
-
 .hero h1{ margin: 0 0 6px; font-size: 26px; }
 .hero p{ margin:0; color: var(--muted); }
 
@@ -236,34 +202,34 @@ a, a:visited{
 }
 
 .post-title{ font-size: 20px; margin: 0 0 6px; }
+.post-title a, .post-title a:visited{ color: var(--text); text-decoration:none; }
+.post-title a:hover{ text-decoration:none; }
+
 .meta{ font-size: 13px; color: var(--muted); }
 .excerpt{ margin: 10px 0 0; color: var(--text); opacity: .92; }
 
-/* badges/tags mais “chip” */
-.badges{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-.badge{
-  font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.05);
-  color: var(--text);
-}
-
-/* Mobile: manter header e cards bonitos */
-@media (max-width: 640px){
+/* MOBILE */
+@media (max-width: 768px){
   .nav{
-    min-height: 130px; /* dá um pouco mais de espaço */
+    flex-direction:column;
+    align-items:flex-start;
   }
 
-  .nav::before{
-    background-position: center 70%;
-    background-size: cover;
+  article{
+    padding: 22px;
+  }
+
+  article h1{
+    font-size:28px;
+  }
+
+  .container{
+    padding:16px;
+  }
+
+  /* Foco mais pra baixo no mobile */
+  body::before{
+    background-position: center 75%;
     opacity: 0.22;
   }
 }
-
-
-
-
-
