@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Sobre mim"
+title: "about me"
 permalink: /about/
 ---
 <div class="hero">
-<h1>sobre mim</h1>
+<h1>about me</h1>
 <br>
 
 <p>{{ site.author.name }}</p>   
@@ -14,6 +14,7 @@ permalink: /about/
 <p>{{ site.author.bio }}</p>
 
 </div>
+
 
 
 
