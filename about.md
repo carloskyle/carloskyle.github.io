@@ -5,10 +5,11 @@ permalink: /about/
 ---
 <div class="hero">
 <h1>Sobre mim</h1>
+<br>
 
-**{{ site.author.name }}**  
-{{ site.author.role }}
-
-{{ site.author.bio }}
+<p{{ site.author.name }}></p>   
+<p>{{ site.author.role }}</p>
+<p>{{ site.author.bio }}</p>
 
 </div>
+
