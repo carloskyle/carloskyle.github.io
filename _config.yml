@@ -16,11 +16,8 @@ plugins:
 author:
   name: "Carlos Nascimento"
   role: "IT Analyst N2 | Network Security | CTF"
-  bio: "Olá, meu nome é Carlos e tenho uma paixão enorme pela tecnologia desde pequeno, finalizei minha faculdade de Segurança da Informação e estou iniciando minha carreira desbravando o mundo da tecnologia, no momento tenho atuado em aprendizados em Redes, Segurança Ofensiva e Defensiva!"
-  <br>
-  bio: teste
-  <br>
-  bio: teste
+  bio: "Olá, meu nome é Carlos, sou formado em Segurança da Informação e atualmente estou iniciando minha carreira na área de tecnologia, com foco em estudos e prática em Redes, Segurança Ofensiva e Segurança Defensiva; seja muito bem-vindo ao meu blog, onde compartilho meus aprendizados, experiências e evolução na área."
+ 
 
 
 
@@ -29,6 +26,7 @@ author:
     github: "https://github.com/carloskyle"
 
     linkedin: "https://www.linkedin.com/in/carlos-nascimento-673741188/"
+
 
 
 
