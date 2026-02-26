@@ -1,0 +1,23 @@
+title: "Carlos — Aprendizados"
+description: "Documentando estudos, labs e reflexões técnicas."
+url: "https://SEUUSUARIO.github.io" # troque depois
+timezone: America/Sao_Paulo
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+permalink: /:categories/:year/:month/:day/:title/
+
+# Deixa o GitHub Pages feliz
+plugins:
+  - jekyll-feed
+
+# Dados usados no "Sobre"
+author:
+  name: "Carlos Eduardo"
+  role: "Network/Security • Labs • Aprendizado contínuo"
+  bio: "Escrevo sobre o que estudo: redes, segurança, automação e troubleshooting."
+  links:
+    github: "https://github.com/SEUUSUARIO"
+    linkedin: "https://www.linkedin.com/in/SEU-LINK/"

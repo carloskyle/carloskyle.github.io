@@ -1,0 +1,13 @@
+<div class="nav">
+  <div class="brand">
+    <div class="title"><a href="{{ "/" | relative_url }}">{{ site.title }}</a></div>
+    <div class="desc">{{ site.description }}</div>
+  </div>
+
+  <div class="links">
+    <a href="{{ "/" | relative_url }}">Posts</a>
+    <a href="{{ "/about" | relative_url }}">Sobre</a>
+    {% if site.author.links.github %}<a href="{{ site.author.links.github }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
+    {% if site.author.links.linkedin %}<a href="{{ site.author.links.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
+  </div>
+</div>

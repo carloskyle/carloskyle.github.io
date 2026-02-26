@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="hero">
+  <h1>Posts</h1>
+  <p>Notas curtas, labs, troubleshooting e aprendizados — sem enrolação.</p>
+</div>
+
+<div class="grid">
+  {% for post in site.posts %}
+    <div class="card">
+      <h2 class="post-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <div class="meta">
+        {{ post.date | date: "%d/%m/%Y" }}
+        {% if post.tags %} • {% for t in post.tags %}<span class="badge">{{ t }}</span>{% endfor %}{% endif %}
+      </div>
+      {% if post.excerpt %}
+        <p class="excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
