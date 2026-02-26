@@ -249,3 +249,23 @@ a, a:visited{
   }
 }
 
+/* Background global via pseudo-elemento (mobile-safe) */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background-image: var(--page-bg);
+  background-size: cover;
+  background-position: center 70%; /* puxa pra parte de baixo */
+  background-repeat: no-repeat;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Mantém seus efeitos/gradients no body sem "apagar" a imagem */
+body{
+  position: relative;
+}
+
+
