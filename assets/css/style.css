@@ -24,7 +24,7 @@ body{
 
   background:
     linear-gradient(rgba(7,8,12,.85), rgba(7,8,12,.92)),
-    url("/assets/bg.png") right center / cover no-repeat fixed;
+    url("/assets/bg.png") center center / cover no-repeat fixed;
 
   background-attachment: fixed;
 }
@@ -55,7 +55,7 @@ body{
 .brand{ display:flex; flex-direction:column; gap:2px; }
 .brand .title{
   font-weight:700;
-  color: var(--accent);
+  color: var(--text);
 }
 .brand .desc{
   font-size:13px;
@@ -239,3 +239,4 @@ a, a:visited{
   .hero h1{ font-size: 22px; }
   .post-title{ font-size: 18px; }
 }
+
