@@ -7,10 +7,11 @@ permalink: /about/
 <h1>Sobre mim</h1>
 <br>
 
-<p>{{ site.author.name }}></p>   
+<p>{{ site.author.name }}</p>   
 <p>{{ site.author.role }}</p>
 <p>{{ site.author.bio }}</p>
 
 </div>
+
 
 
