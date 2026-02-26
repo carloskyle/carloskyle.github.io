@@ -170,3 +170,72 @@ code{
     padding:16px;
   }
 }
+
+/* ===== FIX 1: manter cor de links consistente (sem roxo de :visited) ===== */
+a, a:visited{
+  color: var(--accent2);
+}
+
+.links a, .links a:visited{
+  color: var(--text);
+}
+
+.post-title a, .post-title a:visited{
+  color: var(--text);
+  text-decoration: none;
+}
+
+.post-title a:hover{
+  text-decoration: underline;
+}
+
+/* ===== FIX 2: voltar segmentação da home (hero + cards) ===== */
+.hero{
+  margin-top: 18px;
+  padding: 20px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+}
+
+.hero h1{ margin: 0 0 6px; font-size: 26px; }
+.hero p{ margin:0; color: var(--muted); }
+
+.grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.card{
+  padding: 16px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+}
+
+.post-title{ font-size: 20px; margin: 0 0 6px; }
+.meta{ font-size: 13px; color: var(--muted); }
+.excerpt{ margin: 10px 0 0; color: var(--text); opacity: .92; }
+
+/* badges/tags mais “chip” */
+.badges{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+.badge{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+}
+
+/* Mobile: manter header e cards bonitos */
+@media (max-width: 768px){
+  .hero h1{ font-size: 22px; }
+  .post-title{ font-size: 18px; }
+}
