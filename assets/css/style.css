@@ -21,11 +21,16 @@ body{
   margin:0;
   font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color: var(--text);
-  background: var(--bg);
+  background: transparent;     /* importante */
   position: relative;
+  z-index: 0;
 }
 
-/* ✅ Wallpaper único (sem duplicar imagem) */
+/* garante fundo base */
+html{
+  background: var(--bg);
+}
+
 body::before{
   content:"";
   position: fixed;
@@ -36,27 +41,22 @@ body::before{
   background-position: center 70%;
   opacity: 0.22;
   pointer-events: none;
-  z-index: -2;
+  z-index: 0;                 /* NÃO negativo */
 }
 
-/* ✅ Overlay escuro + leve “cara” de UI (controla contraste) */
 body::after{
   content:"";
   position: fixed;
   inset: 0;
-  background:
-    linear-gradient(rgba(7,8,12,.78), rgba(7,8,12,.92)),
-    radial-gradient(1200px 600px at 15% 0%, rgba(53,208,127,.08), transparent 60%),
-    radial-gradient(900px 500px at 90% 10%, rgba(53,208,127,.06), transparent 55%);
+  background: linear-gradient(rgba(7,8,12,.78), rgba(7,8,12,.92));
   pointer-events: none;
-  z-index: -1;
+  z-index: 1;
 }
 
-/* Container */
+/* sobe todo o conteúdo acima do overlay */
 .container{
-  max-width: var(--max);
-  margin:0 auto;
-  padding: 24px;
+  position: relative;
+  z-index: 2;
 }
 
 /* NAV */
@@ -233,3 +233,4 @@ a:hover{ text-decoration: underline; }
     opacity: 0.22;
   }
 }
+
