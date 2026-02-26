@@ -1,6 +1,6 @@
 title: "Carlos Nascimento"
 description: "Documentando estudos, labs e reflexões técnicas."
-url: "https://github.com/carloskyle" # troque depois
+url: "https://carloskyle.github.io/"
 timezone: America/Sao_Paulo
 
 markdown: kramdown
@@ -9,11 +9,10 @@ kramdown:
 
 permalink: /:categories/:year/:month/:day/:title/
 
-# Deixa o GitHub Pages feliz
+
 plugins:
   - jekyll-feed
 
-# Dados usados no "Sobre"
 author:
   name: "Carlos Nascimento"
   role: "Network/Security • CTF • Aprendizado contínuo"
@@ -22,3 +21,4 @@ author:
     github: "https://github.com/carloskyle"
 
     linkedin: "https://www.linkedin.com/in/carlos-nascimento-673741188/"
+
