@@ -141,7 +141,7 @@ code{
 
 /* Footer */
 .footer{
-  margin-top:60px;
+  margin-top:500px;
   color: var(--muted);
   text-align:center;
   font-size:13px;
@@ -239,5 +239,6 @@ a, a:visited{
   .hero h1{ font-size: 22px; }
   .post-title{ font-size: 18px; }
 }
+
 
 
