@@ -8,12 +8,12 @@ permalink: /about/
 <br>
 
 <p>{{ site.author.name }}</p>   
-<br>
 <p>{{ site.author.role }}</p>
 <br>
 <p>{{ site.author.bio }}</p>
 
 </div>
+
 
 
 
