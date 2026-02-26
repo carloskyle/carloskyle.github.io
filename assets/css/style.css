@@ -21,10 +21,32 @@ body{
   margin:0;
   font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color: var(--text);
+  background: var(--bg);
+  position: relative;
+}
 
-  background:
-    linear-gradient(rgba(7,8,12,.85), rgba(7,8,12,.92)),
-    url("/assets/bg.png") center center / cover no-repeat fixed;
+/* wallpaper */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background-image: var(--page-bg);
+  background-size: cover;
+  background-position: center 70%;
+  background-repeat: no-repeat;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* overlay escuro + leve verde */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(7,8,12,.80), rgba(7,8,12,.92));
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Container */
@@ -247,24 +269,6 @@ a, a:visited{
   }
 }
 
-/* Background global via pseudo-elemento (mobile-safe) */
-body::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background-image: var(--page-bg);
-  background-size: cover;
-  background-position: center 70%; /* puxa pra parte de baixo */
-  background-repeat: no-repeat;
-  opacity: 0.18;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Mantém seus efeitos/gradients no body sem "apagar" a imagem */
-body{
-  position: relative;
-}
 
 
 
