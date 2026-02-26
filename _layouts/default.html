@@ -3,7 +3,7 @@
   <head>
     {% include head.html %}
   </head>
-  <body>
+  <body style="--page-bg: url('{{ "/assets/bg.png" | relative_url }}');">
     <div class="container">
       {% include header.html %}
       <div style="height:14px"></div>
@@ -11,4 +11,5 @@
       {% include footer.html %}
     </div>
   </body>
+
 </html>
