@@ -174,10 +174,12 @@ code{
 /* ===== FIX 1: manter cor de links consistente (sem roxo de :visited) ===== */
 a, a:visited{
   color: var(--accent2);
+  text-decoration: none;
 }
 
 .links a, .links a:visited{
   color: var(--text);
+  text-decoration: none;
 }
 
 .post-title a, .post-title a:visited{
@@ -186,7 +188,7 @@ a, a:visited{
 }
 
 .post-title a:hover{
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* ===== FIX 2: voltar segmentação da home (hero + cards) ===== */
@@ -235,8 +237,15 @@ a, a:visited{
 }
 
 /* Mobile: manter header e cards bonitos */
-@media (max-width: 768px){
-  .hero h1{ font-size: 22px; }
-  .post-title{ font-size: 18px; }
+@media (max-width: 640px){
+  .nav{
+    min-height: 130px; /* dá um pouco mais de espaço */
+  }
+
+  .nav::before{
+    background-position: center 70%;
+    background-size: cover;
+    opacity: 0.22;
+  }
 }
 
